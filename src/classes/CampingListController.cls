@@ -9,5 +9,6 @@ public class CampingListController  {
     public static Camping_Item__c saveItem(Camping_Item__c item) {
         upsert item;
         return item;
+		System.debug('Test');
     }
 }
