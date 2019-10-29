@@ -1,0 +1,58 @@
+<apex:page sidebar="false" showheader="false">
+<apex:stylesheet value="{!URLFOR($Resource.StyleCss, '')}"/>
+
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>css3menu.com</title>
+        <!-- Start css3menu.com HEAD section -->
+    <link rel="stylesheet" href="/style.css" type="test/css" /><style type="text/css">._css3m{display:none}</style>
+    <!-- End css3menu.com HEAD section -->
+</head>
+
+<body style="background-color:#EBEBEB">
+<!-- Start css3menu.com BODY section -->
+<ul id="css3menu1" class="topmenu">
+<input type="checkbox" id="css3menu-switcher" class="switchbox">
+<label onclick="" class="switch" for="css3menu-switcher"></label>
+<li class="toproot"><a href="#" style="height:16px;line-height:16px;"><span>People Management</span></a>
+    <ul>
+        <li><a href="#"><span>Current Functionality</span></a>
+        <ul>
+            <li><a href="#"><span>Employee Files</span></a>
+            <ul>
+                <li><a href="https://ap1.salesforce.com/a01/e?retURL=%2Fa01%2Fo">New Employee</a></li>
+                <li><a href="https://ap1.salesforce.com/a01">Edit Employee</a></li>
+            </ul></li>
+            <li><a href="#"><span>Salaries</span></a>
+            <ul>            
+                <li><a href="https://ap1.salesforce.com/a01/e?retURL=%2Fa01%2Fo">New Salary</a></li>
+                <li><a href="https://ap1.salesforce.com/a01">Edit Employee Salary</a></li>
+            </ul>
+            </li>
+        </ul></li>
+        <li><a href="#"><span>Potential Functionality</span></a>
+        <ul>
+            <li><a href="#">Job Applications</a></li>
+            <li><a href="#">Recruitment</a></li>
+            <li><a href="#">Company Car Inventory</a></li>
+            <li><a href="#">Performance</a></li>
+            <li><a href="#">Candidate</a></li>
+            <li><a href="#">Organisation</a></li>
+        </ul></li>
+    </ul></li>
+    <li class="toproot"><a href="#" style="height:16px;line-height:16px;"><span>Client Management</span></a>
+    <ul>
+        <li><a href="#">Client Files</a></li>
+        <li><a href="#">Program Enrollment</a></li>
+        <li><a href="#">Assessment</a></li>
+    </ul></li>
+    <li class="topmenu"><a href="#" style="height:16px;line-height:16px;">Scheduling</a></li>
+    </input>
+</ul><p class="_css3m"><a href="http://css3menu.com/">mobile menu</a> by Css3Menu.com</p>
+<!-- End css3menu.com BODY section -->
+
+</body>
+</html>
+
+</apex:page>

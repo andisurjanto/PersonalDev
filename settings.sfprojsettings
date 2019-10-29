@@ -1,0 +1,23 @@
+{
+  "LightningPreviewerPerProject": {
+    "activeApplicationForComponent": {},
+    "collapsedBundles": [],
+    "expandedBundles": [],
+    "customUrls": {},
+    "parameters": {}
+  },
+  "CodeMapPerProject": {
+    "collapsedPanels": []
+  },
+  "SObjectEditorProject": {
+    "collapsedEditors": [],
+    "expandedEditors": [],
+    "collapsedGlobalEditors": [],
+    "expandedGlobalEditors": []
+  },
+  "FlsProfileFilterSettings": {
+    "WorkingSet": [],
+    "IsConfigured": false
+  },
+  "SettingsVersion": 1
+}

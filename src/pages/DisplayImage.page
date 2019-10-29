@@ -1,0 +1,3 @@
+<apex:page showHeader="false" sidebar="true">
+    <apex:image value="{!$Resource.SFDevLogo}"/>
+</apex:page>

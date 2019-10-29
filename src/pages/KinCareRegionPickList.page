@@ -1,0 +1,17 @@
+<apex:page controller="RegionPickList" sidebar="false" >
+<apex:form >
+<apex:sectionHeader title="KinCare Region Picklist" subtitle="Prototype"/>
+<apex:pageblock >
+<apex:pageBlockSection title="Dynamic picklist" columns="1">
+      <apex:pageblocksectionItem >
+          <apex:outputlabel value="Region" for="values" />
+          <apex:selectList value="{!region}" size="1" id="values">
+              <apex:actionSupport event="onchange" reRender="newvalue" />
+              <apex:selectOptions value="{!regionnames}"/>
+          </apex:selectList>
+      </apex:pageblocksectionItem>                                        
+
+  </apex:pageblocksection>
+</apex:pageblock>
+</apex:form>
+</apex:page>

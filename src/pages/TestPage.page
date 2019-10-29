@@ -1,0 +1,26 @@
+<apex:page controller="TestPage">
+    <apex:form id="theForm">
+        <apex:pageBlock >
+            <apex:pageBlockButtons >
+                <apex:commandButton action="{!updatePage}" value="Page 1" id="Page1" reRender="theForm">
+                    <apex:param name="pageNo" value="1" assignTo="{!pageNo}"/>
+                </apex:commandButton>
+                <apex:commandButton action="{!updatePage}" value="Page 2" id="Page2" reRender="theForm">
+                    <apex:param name="pageNo" value="2" assignTo="{!pageNo}"/>
+                </apex:commandButton>
+                <apex:commandButton action="{!updatePage}" value="Page 3" id="Page3" reRender="theForm">
+                    <apex:param name="pageNo" value="3" assignTo="{!pageNo}"/>
+                </apex:commandButton>
+            </apex:pageBlockButtons>
+            <apex:pageBlockTable value="{!accounts}" var="account" rendered="{!showPage==1}">
+                <apex:column headerValue="Name Page 1" value="{!account.Name}"/>
+            </apex:pageBlockTable>
+            <apex:pageBlockTable value="{!accounts}" var="account" rendered="{!showPage==2}">
+                <apex:column headerValue="Name Page 2" value="{!account.Name}"/>
+            </apex:pageBlockTable>
+            <apex:pageBlockTable value="{!accounts}" var="account" rendered="{!showPage==3}">
+                <apex:column headerValue="Name Page 3" value="{!account.Name}"/>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

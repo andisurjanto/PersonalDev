@@ -1,0 +1,40 @@
+<apex:page sidebar="false" showheader="false">
+    <apex:tabPanel switchType="client" selectedTab="name1" id="theTabPanel">
+        <apex:tab label="People Management" name="name1" id="tabOne">
+            <apex:tabPanel switchType="client" selectedTab="name1" id="theTabPanel1">
+                <apex:tab label="Current Functionality" name="name11" id="tabOne1">
+                    <apex:panelGrid columns="2" id="theGrid" cellspacing="50">
+                        <apex:outputLink value="https://ap1.salesforce.com/a01/e?retURL=%2Fa01%2Fo" id="theLink">
+                            <apex:image url="{!URLFOR($Resource.EmployeeIcon, '')}" title="New Employee">
+                            </apex:image>
+                            <br/>
+                            <apex:outputLabel >New Employee</apex:outputLabel>
+                        </apex:outputLink>
+                        <apex:outputLink value="https://ap1.salesforce.com/a01" id="theLink11">
+                            <apex:image url="{!URLFOR($Resource.EmployeeIcon, '')}" title="New Employee">
+                            </apex:image>
+                            <br/>
+                            <apex:outputLabel >Edit Employee</apex:outputLabel>
+                        </apex:outputLink>
+                    </apex:panelGrid>
+                </apex:tab>
+                <apex:tab label="Potential Functionality" name="name12" id="tabOne2">
+                    <apex:panelGrid columns="2" id="theGrid2" cellspacing="50">
+                        <apex:outputLink value="https://ap1.salesforce.com/a01/e?retURL=%2Fa01%2Fo" id="theLink12">
+                            <apex:image url="{!URLFOR($Resource.EmployeeIcon, '')}" title="New Employee">
+                            </apex:image>
+                            <br/>
+                            <apex:outputLabel >New Employee</apex:outputLabel>
+                        </apex:outputLink>
+                    </apex:panelGrid>
+                </apex:tab>
+            </apex:tabPanel>
+        </apex:tab>
+        <apex:tab label="Client Management" name="name2" id="tabTwo">
+        content for tab two
+    </apex:tab>
+        <apex:tab label="Scheduling" name="name3" id="tabThree">
+        content for tab three
+    </apex:tab>
+    </apex:tabPanel>
+</apex:page>

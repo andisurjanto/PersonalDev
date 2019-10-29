@@ -1,0 +1,49 @@
+<apex:page sidebar="false" standardController="Account">
+    <apex:pageBlock title="Account">
+        <apex:pageblockSection title="User Information">
+            Today's Date is {!TODAY()}
+            <br> Username : {!$User.FirstName & ' ' & $User.LastName} </br>           
+        </apex:pageblockSection>
+        <apex:form >
+        <apex:pageblockSection title="Account Information">
+           <apex:outputField value="{!account.Owner.Name}"/>   
+           <apex:outputField value="{!account.Rating}"/> 
+           <apex:outputField value="{!account.Name}"/> 
+           <apex:outputField value="{!account.Phone}"/>       
+           <apex:outputField value="{!account.Parent.Name}"/>       
+           <apex:outputField value="{!account.Fax}"/>       
+           <apex:outputField value="{!account.AccountNumber}"/>       
+           <apex:outputField value="{!account.Website}" rendered="{!IF(account.type='Prospect','true','false')}" /> 
+           <apex:outputField value="{!account.Site}"/>
+           <apex:outputField value="{!account.TickerSymbol}"/>
+           <apex:outputField value="{!account.Type}">
+               <apex:inlineEditSupport event="ondblclick" showOnEdit="update"/>
+           </apex:outputField>
+           <apex:outputField value="{!account.Ownership}"/>
+           <apex:outputField value="{!account.Industry}"/>
+           <apex:outputField value="{!account.NumberOfEmployees}"/>
+           <apex:outputText value="{!account.BillingStreet & ' ' & account.BillingCity}" label="Billing Address"/>
+           <apex:outputText value="{!account.ShippingStreet & ' ' & account.ShippingCity}" label="Shipping Address"/>
+
+           
+           <apex:outputField value="{!account.CreatedBy.Name}" label="Created by"/>      
+           <apex:outputField value="{!account.LastModifiedBy.Name}" label="Last Modified by"/>
+           <br></br>
+           <apex:commandButton id="update" action="{!quicksave}" value="Save" styleclass="updateButton"/>      
+        </apex:pageblockSection>
+        </apex:form>
+        <apex:pageblockSection title="Contacts">
+            <apex:pageBlockTable value="{! account.contacts}" var="item">
+                <apex:column value="{! item.name}"/>
+            </apex:pageBlockTable>
+            <apex:relatedList list="Contacts"/>
+        </apex:pageblockSection>
+        <apex:pageBlockSection title="Standard Details" >
+        <apex:detail relatedList="true">
+            <apex:relatedList list="Contacts"/>
+            <apex:relatedList list="Cases"/>
+        </apex:detail>
+
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+</apex:page>

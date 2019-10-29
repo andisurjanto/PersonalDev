@@ -1,0 +1,7 @@
+<apex:page controller="Domino_API">
+	<apex:pageblock >
+		<apex:form id="theForm">
+
+		</apex:form>
+	</apex:pageblock>
+</apex:page>

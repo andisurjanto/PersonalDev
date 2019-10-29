@@ -1,0 +1,21 @@
+<!--<apex:page standardController="FeeTable__c" extensions="FeeTableExtention"> -->
+<apex:page Controller="FeeTable">
+    <apex:dataList value="{!ChildList}" var="feeTableList">
+        <apex:outputText value="{!feeTableList.id}"/>
+    </apex:dataList>
+        <apex:pageblock >
+        <apex:form id="theForm">
+                   <apex:SelectList value="{!selectedOpt}" size="1">
+                <apex:selectOptions value="{!FeeTableGroup}"/>
+                <apex:actionSupport event="onchange" rerender="theForm"/>
+            </apex:SelectList>
+            <br/>
+            <br/>
+           <!-- <apex:outputText >{!selectedOpt}</apex:outputText> -->
+          <apex:pageBlockTable value="{!ChildList}" var="cust">
+            <apex:column headerValue="Name">{!cust.Name}</apex:column> 
+            <apex:column headerValue="Grade">{!cust.SpecificGrade__c}</apex:column> 
+                </apex:pageBlockTable>
+        </apex:form>
+    </apex:pageblock>
+</apex:page>

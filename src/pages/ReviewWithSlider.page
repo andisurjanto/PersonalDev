@@ -1,0 +1,23 @@
+<apex:page standardController="Review__c"  tabStyle="Review__c">
+    <apex:sectionHeader title="{!$ObjectType.Review__c.Label} Edit" subtitle="{!Review__c.Name}"/>
+    <apex:form id="theForm">
+        <apex:pageblock title="{!$ObjectType.Review__c.Label} Edit">
+            <apex:pageBlockButtons location="both">
+                <apex:commandButton action="{!save}" value="Save"/>
+                <apex:commandButton action="{!cancel}" value="Cancel"/>
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection title="Information" id="information" columns="1" collapsible="false">
+                <apex:outputField value="{!Review__c.Name}"/>
+                <apex:outputField value="{!Review__c.Job_Application__c}"/>
+             </apex:pageBlockSection>
+             <apex:pageBlockSection title="Assessment" id="Assessment" columns="1" collapsible="false">
+                <apex:inputField id="cAssessment" value="{!Review__c.Assessment__c}" style="width:300px"/>
+                <apex:inputHidden id="cRating" value="{!Review__c.Rating__c}" />
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Rating"/>                                            
+                    <c:Slider startValue="{!Review__c.Rating__c}" min="1" max="5" passthroughId="{!$Component.Assessment.cRating}" />
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+        </apex:pageblock>
+    </apex:form>
+</apex:page>

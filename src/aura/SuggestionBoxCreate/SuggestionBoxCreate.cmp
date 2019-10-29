@@ -1,0 +1,45 @@
+<aura:component controller="SuggestionController" implements="flexipage:availableForAllPageTypes">
+   <ltng:require styles="{!$Resource.slds + 'assets/styles/salesforce-lightning-design-system-vf.css'}" />
+   <aura:attribute name="suggestions" type="Suggestion__c[]" />
+   <aura:attribute name="newSuggestion" type="Suggestion__c"
+      default="{ 'sobjectType': 'Suggestion__c',
+      'Name': '',
+      'Status__c': '',
+      'Suggestion_Category__c': '',
+      'Suggestion_Description__c': ''
+      }"></aura:attribute>
+   <div class="container">
+      <h1>
+         Add Suggestions
+         <div style="margin-left: 0; height: 30px; float: right; margin-top: -3px; margin-right: 0; auto; vertical-align: inherit;">
+            <ui:button aura:id="addbutton" label="New" labelClass="assistiveText" class="myButton" press="{!c.addNew}" />
+         </div>
+      </h1>
+   </div>
+   <!-- Input Form using components -->
+   <div aura:id="formbox" class="myboxhidden">
+      <form>
+         <fieldset>
+            <ui:inputText aura:id="sugname" label="Suggestion Name"
+               class="form-control"
+               value="{!v.newSuggestion.Name}"
+               placeholder="Suggestion Name" required="true"/>
+            <ui:inputSelect aura:id="category" label="Suggestion Category"
+               class="cExpenseForm form-control"
+               value="{!v.newSuggestion.Suggestion_Category__c}"
+               required="true" >
+               <ui:inputSelectOption text="Customer Service" value="Customer Service"/>
+               <ui:inputSelectOption text="Employee Services" value="Employee Services"/>
+               <ui:inputSelectOption text="Facilities/ IT" value="Facilities/ IT" />
+               <ui:inputSelectOption text="Kitchen Snacks" value="Implemented"/>
+               <ui:inputSelectOption text="Others" value="Implemented"/>
+            </ui:inputSelect>
+            <ui:inputText aura:id="description" label="Suggestion Description"
+               class="cExpenseForm form-control"
+               value="{!v.newSuggestion.Suggestion_Description__c}"
+               placeholder="Describe your suggestion here" />
+            <ui:button label="Submit" press="{!c.createSuggestion}" />
+         </fieldset>
+      </form>
+   </div>
+</aura:component>

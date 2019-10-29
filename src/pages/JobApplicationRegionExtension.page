@@ -1,0 +1,42 @@
+<apex:page standardController="Job_Application__c" extensions="JobApplicationRegionExtention" tabStyle="Job_Application__c">
+<apex:sectionHeader title="{!$ObjectType.Job_Application__c.Label} Edit" subtitle="{!Job_Application__c.Name}"/>
+    <apex:form id="theForm">
+        <apex:pageblock title="{!$ObjectType.Job_Application__c.Label} Edit">
+            <apex:pageBlockButtons location="both">
+                <apex:commandButton action="{!save}" value="Save"/>
+                <apex:commandButton action="{!cancel}" value="Cancel"/>
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection title="Information" id="information" columns="1" collapsible="false">
+                <apex:outputField value="{!Job_Application__c.Name}"/>
+                <apex:inputField id="cCandidate" value="{!Job_Application__c.Candidate__c}"/>
+                <apex:inputField id="cPosition" value="{!Job_Application__c.Position__c}"/>
+                <apex:inputField id="cCoverLetter" value="{!Job_Application__c.Cover_Letter__c}"/>
+                <apex:inputField id="cStatus" value="{!Job_Application__c.Status__c}"/>
+                <apex:pageblocksectionItem >
+                    <apex:outputlabel value="State" for="state"/>
+                    <apex:selectList value="{!state}" size="1" id="state">
+                        <apex:selectOptions value="{!statenames}"/>
+                    </apex:selectList>
+                </apex:pageblocksectionItem>
+                <apex:pageblocksectionItem >
+                    <apex:outputlabel value="Region Type" for="sub"/>
+                    <apex:selectList value="{!subCategory}" size="1" id="sub">
+                        <apex:selectOptions value="{!subCategories}"/>
+                        <apex:actionSupport event="onchange" rerender="theForm"/>
+                    </apex:selectList>
+                </apex:pageblocksectionItem>
+                <apex:pageblocksectionItem >
+                    <apex:outputlabel value="Delivery Area" for="cities"/>
+                    <apex:selectList value="{!city}" size="1" id="city" multiselect="true">
+                        <apex:selectOptions value="{!citynames}"/>
+                    </apex:selectList>
+                </apex:pageblocksectionItem>
+                <apex:pageblocksectionItem >
+                    <apex:outputlabel value="Click the button to" for="button"/>
+                    <apex:commandButton action="{!updateRegion}" value="update region"/>
+                </apex:pageblocksectionItem>
+                <apex:inputField id="cRegion" value="{!Job_Application__c.Region__c}"/>
+            </apex:pageBlockSection>
+        </apex:pageblock>
+    </apex:form>
+</apex:page>

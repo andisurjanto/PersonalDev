@@ -1,0 +1,23 @@
+<apex:page sidebar="false">
+    <apex:pageBlock title="A Block Title">
+        <apex:pageblockSection title="Account Information">
+            
+        </apex:pageblockSection>
+        <apex:pageBlockSection title="A Section Title">
+            <p> Today's Date is {!TODAY()} </p>
+            <p> Next week it will be {!TODAY()+7} </p>
+            <p> Username : {!$User.FirstName & ' ' & $User.LastName} </p>
+        </apex:pageBlockSection>
+        <apex:pageBlockSection title="A New Section">
+            <p>The year today is {! YEAR(TODAY())}</p>
+            <p>Tomorrow will be day number {! DAY(TODAY() + 1)}</p>
+            <p>Let's find a maximum: {! MAX(1,2,3,4,5,6,5,4,3,2,1)} </p>
+            <p>The square root of 49 is {! SQRT(49)}</p>
+            <p>Is it true? {! CONTAINS('salesforce.com', 'force.com')}</p>
+        </apex:pageBlockSection>
+        <apex:pageBlockSection title="Third Section">
+            {! IF( CONTAINS('saleforce.som','force.com'), 'Yep', 'Nah') }
+            <br>{! IF (DAY(TODAY()) > 14, 'After the 14th', 'On or before the 14th') }</br>
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+</apex:page>

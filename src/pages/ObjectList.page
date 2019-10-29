@@ -1,0 +1,30 @@
+<apex:page controller="ObjectList">
+    <apex:pageblock >
+        <apex:form id="theForm">
+        <!--
+            <apex:SelectList value="{!val}" size="1">
+                <apex:selectOptions value="{!Name}"/>
+                <apex:actionSupport event="onchange" action="{!updateUrl}" rerender="theForm"/>
+            </apex:SelectList>
+            <br/>
+            <br/>
+            <apex:outputLink value="{!urlLink}" id="theLink" target="_blank">{!urlLink}</apex:outputLink> -->
+
+        <br/>
+        <br/>
+            <apex:SelectList value="{!selectedObject}" size="1">
+                <apex:selectOptions value="{!ObjectOption}"/>
+                <apex:actionSupport event="onchange" action="{!retrieveObject}" rerender="theForm"/>
+            </apex:SelectList>
+            <br/>
+            <br/>
+            <apex:pageBlockTable value="{!ObjList}" var="cust">
+            <apex:column headerValue="Name">{!cust.label}</apex:column>
+            <apex:column headerValue="Url Link ">
+                <apex:outputLink value="{!cust.urlLink}" target="_blank">{!cust.urlLink}</apex:outputLink>
+            </apex:column>
+            <apex:column headerValue="Key Prefix">{!cust.keyPrefix}</apex:column>
+        </apex:pageBlockTable>
+        </apex:form>
+    </apex:pageblock>
+</apex:page>

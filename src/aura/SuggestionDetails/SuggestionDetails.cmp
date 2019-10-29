@@ -1,0 +1,47 @@
+<aura:component controller="SuggestionController" implements="flexipage:availableForAllPageTypes">
+   <ltng:require styles="{!$Resource.slds}" />
+   <aura:attribute name="suggestion" type="Suggestion__c"/>
+   <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+   <aura:handler event="aura:locationChange" action="{!c.locationChange}"/>
+   <aura:if isTrue="{! v.suggestion.Name !=null }">
+      <div class="details">
+         <ul class="slds-has-dividers--around-space">
+            <li class="slds-item">
+               <div class="slds-tile slds-tile--board">
+                  <h3 class="slds-truncate"><a href="javascript:void(0);">
+                     Suggestion Details
+                     </a>
+                  </h3>
+                  <div class="slds-tile__detail slds-text-body--small">
+                     <p class="slds-text-heading--medium">
+                        {!v.suggestion.Name} 
+                     </p>
+                     <p class="slds-truncate"><a href="javascript:void(0);">
+                        {!v.suggestion.Status__c} 
+                        </a>
+                     </p>
+                     <p class="slds-truncate">
+                        {!v.suggestion.Suggestion_Category__c} 
+                     </p>
+                     <p class="slds-truncate"><a href="javascript:void(0);">
+                        {!v.suggestion.Suggestion_Description__c} </a>
+                     </p>
+                     <p class="slds-truncate">
+                        {!v.suggestion.Vote_up__c}
+                        <aura:if isTrue="{! v.suggestion.Name !=null }"> Votes
+                        </aura:if>
+                     </p>
+                     <p class="slds-truncate">
+                        <a href="javascript:void(0);">
+                           <aura:if isTrue="{! v.suggestion.Name !=null }">
+                              <button class=".slds-button--neutral" type="button" onclick="{!c.voteup}" >Vote up</button>
+                           </aura:if>
+                        </a>
+                     </p>
+                  </div>
+               </div>
+            </li>
+         </ul>
+      </div>
+   </aura:if>
+</aura:component>

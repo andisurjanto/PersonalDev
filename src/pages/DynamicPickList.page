@@ -1,0 +1,33 @@
+<apex:page controller="DynamicPickList" sidebar="false" >
+<apex:form id="theForm">
+<apex:sectionHeader title="Dynamic Picklist" subtitle="Prototype"/>
+<apex:pageblock >
+<apex:pageBlockSection title="Dynamic picklist" columns="1">
+      <apex:pageblocksectionItem >
+           <apex:outputlabel value="State" for="states" />
+          <apex:selectList value="{!state}" size="1" id="state">
+              <apex:selectOptions value="{!statenames}"/>
+              <apex:actionSupport event="onchange" rerender="theForm"/>
+          </apex:selectList>
+      </apex:pageblocksectionItem>                                        
+
+      <apex:pageblocksectionItem >
+          <apex:outputlabel value="City" for="values" />
+          <apex:selectList value="{!city}" size="1" id="city"  multiselect="true">
+              <apex:actionSupport event="onchange" reRender="newvalue" />
+              <apex:selectOptions value="{!citynames}"/>
+          </apex:selectList>
+      </apex:pageblocksectionItem>                                        
+ 
+          <apex:outputpanel id="newvalue">
+             <apex:outputpanel rendered="{!city == '--Other--'}">
+                  <apex:outputlabel value="New value" for="newval" />
+                  <apex:inputText value="{!newpicklistvalue}" id="newval"/>
+                  
+                  <apex:commandbutton action="{!saverec}" value="Add!"/>
+             </apex:outputpanel>
+          </apex:outputpanel>             
+  </apex:pageblocksection>
+</apex:pageblock>
+</apex:form>
+</apex:page>
